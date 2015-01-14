@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var db = require('./modules/dbconnection');
+
 var routes = require('./routes/index');
 //var users = require('./routes/users');
 
@@ -24,7 +26,10 @@ app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/register', routes.register);
+app.use('/register_user',db.registerUser);
+app.use('/get_users',db.getUsers);
+//app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

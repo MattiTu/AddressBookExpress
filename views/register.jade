@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  div(class='container')
+    h2 Register
+    form(action='/login',method='post')   
+      input(type='text',name='username',placeholder='username')
+      input(type='text',name='password',placeholder='password')
+      input(type='text',name='email',placeholder='Email address')
+      br
+      input(type='submit',value='Register')
+    

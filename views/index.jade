@@ -1,5 +1,13 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div(class='container')
+    h2 Login page
+    form(action='/login',method='post')    
+      input(type='text',name='username',placeholder='username') 
+      input(type='text',name='password',placeholder='password')
+      br
+      input(type='submit',value='Login')
+    p Not yet registered?
+    a(href='/register') Register here!
+    
