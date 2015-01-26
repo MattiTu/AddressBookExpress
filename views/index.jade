@@ -2,12 +2,13 @@ extends layout
 
 block content
   div(class='container')
-    h2 Login page
-    form(action='/login',method='post')    
-      input(type='text',name='username',placeholder='username') 
-      input(type='text',name='password',placeholder='password')
+    h2 User login
+    form(action='/login',method='post',data-ajax='false')    
+      input(type='text',name='username',placeholder='username',autofocus) 
+      input(type='password',name='password',placeholder='password')
       br
       input(type='submit',value='Login')
-    p Not yet registered?
-    a(href='/register') Register here!
-    
+    p Don't have an account?  
+      a(href='/register') Register here!
+    p(id='errorMsg') #{error}    
+    script(src='/javascripts/blink.js')

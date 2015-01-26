@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  div(class='container')
+    a(href='/logout',id='logout') Logout
+    div(data-role='header',id='contact_name') #{name}
+    table(data-role='table',data-mode='reflow')
+      thead
+        tr
+          th Address
+          th Email
+          th Phone
+          th Birthday
+          th Other
+      tbody
+        tr
+          td #{address}
+          td #{email}
+          td #{phone}
+          td #{birthday}
+          td #{otherInfo}
+    img(src='/show_image?id=#{_id}')
+    br
+    a(href='/modify?id="#{_id}"', data-role="button",data-icon='gear') Modify
+    br
+    a(id='delete', data-role="button",data-icon='gear',data-id='"#{_id}"') Delete
+    script(src='/javascripts/application.js')

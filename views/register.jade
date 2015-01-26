@@ -2,11 +2,13 @@ extends layout
 
 block content
   div(class='container')
+    a(href='/logout',id='logout') Logout
     h2 Register
-    form(action='/login',method='post')   
+    form(action='/register_user',method='post')   
       input(type='text',name='username',placeholder='username')
       input(type='text',name='password',placeholder='password')
-      input(type='text',name='email',placeholder='Email address')
+      input(type='text',name='email',placeholder='email address')
       br
       input(type='submit',value='Register')
-    
+    p(id='errorMsg') #{error}    
+    script(src='/javascripts/blink.js')

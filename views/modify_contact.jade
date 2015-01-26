@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  div(class='container')
+    a(href='/logout',id='logout') Logout
+    h1 Modify Contact
+    //The enctype attribute must be set for file uploading
+    form(action='/changes',method='put',data-ajax='false')
+      input(type='text',name='name',placeholder='all names',value='#{name}') 
+      br
+      input(type='text',name='address',placeholder='whole address',value='#{address}')
+      br
+      input(type='text',name='email',placeholder='email address',value='#{email}')
+      br
+      input(type='text',name='phone',placeholder='phone number',value='#{phone}') 
+      br
+      label Other infromation about contact
+      br
+      textarea(name='extrainfo') #{otherInfo}
+      br
+      input(type="hidden",name='id',value='#{_id}')
+      input(type='submit',value='Save Changes')
+      p #{errorMsg}

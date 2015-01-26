@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  div(class='container')
+    a(href='/logout',id='logout') Logout
+    h1=header
+    //The enctype attribute must be set for file uploading
+    form(action='#{path}',method='post',data-ajax='false',enctype='multipart/form-data')
+      input(type='text',name='name',placeholder='all names')
+      input(type='text',name='address',placeholder='whole address')
+      input(type='text',name='email',placeholder='email address')
+      input(type='text',name='phone',placeholder='phone number')
+      input(type='date',name='birthday',placeholder='Birthday')
+      br
+      label Choose image for contact
+      input(id='photo_button',type='file',name='photo')
+      br
+      label Other infromation about contact
+      textarea(id='extrainfo', name='extrainfo')
+      br
+      input(type='submit',value='#{buttonText}')
+      p(id='errorMsg') #{errorMsg}
+      script(src='/javascripts/blink.js')

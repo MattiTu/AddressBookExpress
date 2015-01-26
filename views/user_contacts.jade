@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  div(class='container')
+    a(href='/logout',id='logout') Logout
+    h1 #{username}'s contacts
+    form(action='/login',method='post')    
+      ul(data-role='listview')
+        each address in addresses
+          li
+            a(id='contact_info',href='/contact_info?id=#{address._id}') #{address.name}
+    a(href='/new_contact') Add new contact
