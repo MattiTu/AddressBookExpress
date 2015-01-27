@@ -3,7 +3,7 @@ extends layout
 block content
   div(class='container')
     a(href='/logout',id='logout') Logout
-    h2 Register
+    h2 Register new user
     form(action='/register_user',method='post')   
       input(type='text',name='username',placeholder='username')
       input(type='text',name='password',placeholder='password')

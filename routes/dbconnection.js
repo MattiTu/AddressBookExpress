@@ -272,9 +272,11 @@ exports.saveNewContactFormData = function(req,res){
 }
 
 
-/** 
- *  open newContactForm
- **/
+/**********************************
+    getContactInfo 
+    
+    open newContactForm
+***********************************/
 
 exports.getContactInfo = function(req,res){
     console.log('exports.getContactInfo');
@@ -303,6 +305,11 @@ exports.getContactInfo = function(req,res){
     console.log('exports.getContactInfo done');        
 }
 
+
+/**********************************
+    showImage 
+***********************************/
+
 exports.showImage = function(req,res){
 
     console.log('exports.showImage');
@@ -325,17 +332,23 @@ exports.showImage = function(req,res){
 }
 
 
+/**********************************
+    modifyUser 
+***********************************/
+
 exports.modifyUser = function(req,res){
     
     console.log('exports.modifyUser');
 
-    if(req.session.loggedin)
+    if(req.session.isloggedin)
     {
         AddressBook.findOne(req.query.id,function(err,user_data){
             if(err){
-                res.render('error');
+                console.log('exports.modifyUser error');
+                res.render('error',{title:'Error',error:err});
             }
             else{
+                console.log('exports.modifyUser render modify_contact');
                 res.render('modify_contact',user_data);
             }
         });
@@ -346,11 +359,16 @@ exports.modifyUser = function(req,res){
     console.log('exports.modifyUser done');
 }
 
+
+/**********************************
+    saveModifications 
+***********************************/
+
 exports.saveModifications = function(req,res){
     
     console.log('exports.saveModifications');
 
-    if(req.session.loggedin){
+    if(req.session.isloggedin){
         
         AddressBook.findOne(req.query.id,function(err,user_data){
             
@@ -379,6 +397,11 @@ exports.saveModifications = function(req,res){
     }
     console.log('exports.saveModifications done');
 }
+
+
+/**********************************
+    deleteContact 
+***********************************/
 
 exports.deleteContact = function(req,res){
     
